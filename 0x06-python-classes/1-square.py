@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""defines a square"""
+"""defining a square"""
 
 
 class Square:
@@ -15,4 +15,3 @@ class Square:
         param1: size is the type int attribute to make it private
         """
         self.__size = size
-
