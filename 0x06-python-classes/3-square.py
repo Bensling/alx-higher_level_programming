@@ -1,39 +1,31 @@
 #!/usr/bin/python3
 
-"""
-Square Utility Module.
+"""Square module.
 
-This module defines a class for working with squares. It includes an initialization
-method to set the square's size while ensuring valid input, and a method to calculate
-the area of the square.
+This module contains a class that defines a square and init method that
+sets its size and checking if the given values are right. There's also an
+area method that returns the area of the square.
 """
 
-class Square:
-    """
-    Represents a square shape.
-    """
+
+class Square():
+    """Defines a square."""
     def __init__(self, size=0):
-        """
-        Initializes the square object.
-
+        """Sets the necessary attributes for the Square object.
         Args:
-            size (int): The length of a side of the square.
-
+            size (int): the size of one edge of the square.
         Raises:
-            TypeError: If size is not an integer.
-            ValueError: If size is negative.
+            TypeError: if size is not given as an integer.
+            ValueError: if size is less than 0.
         """
-        if not isinstance(size, int):
-            raise TypeError("Size must be an integer")
-        if size < 0:
-            raise ValueError("Size must be non-negative")
-        self.__size = size
+        if type(size) is int:
+            if size >= 0:
+                self.__size = size
+            else:
+                raise ValueError("size must be >= 0")
+        else:
+            raise TypeError("size must be an integer")
 
     def area(self):
-        """
-        Calculates the area of the square.
-
-        Returns:
-            int: The area of the square.
-        """
+        """Returns the current square area."""
         return self.__size ** 2

@@ -1,60 +1,38 @@
 #!/usr/bin/python3
 
-"""
-Square Module.
+"""Square module.
 
-This module defines a Square class for working with square shapes. It includes methods
-for setting and getting the size of the square, along with a method to calculate the
-area of the square.
+This module contains a class that defines a square and its size and checking
+if the given values are right, and a setter and getter methods to set or get
+it. There's also an area method that returns the area of the square.
 """
 
-class Square:
-    """
-    Represents a square shape.
-    """
+
+class Square():
+    """Defines a square."""
 
     def __init__(self, size=0):
-        """
-        Initializes the square object.
-
+        """Sets the necessary attributes for the Square object.
         Args:
-            size (int): The length of a side of the square.
+            size (int): the size of one edge of the square.
         """
         self.size = size
 
     @property
     def size(self):
-        """
-        Get the size of the square.
-
-        Returns:
-            int: The size of the square.
-        """
+        """Get or set the size of the square."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """
-        Set the size of the square.
-
-        Args:
-            value (int): The new size of the square.
-
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is negative.
-        """
-        if not isinstance(value, int):
-            raise TypeError("Size must be an integer")
-        if value < 0:
-            raise ValueError("Size must be non-negative")
-        self.__size = value
+        if type(value) is int:
+            if value >= 0:
+                self.__size = value
+            else:
+                raise ValueError("size must be >= 0")
+        else:
+            raise TypeError("size must be an integer")
 
     def area(self):
-        """
-        Calculates the area of the square.
-
-        Returns:
-            int: The area of the square.
-        """
+        """Returns the current square area."""
         return self.__size ** 2
