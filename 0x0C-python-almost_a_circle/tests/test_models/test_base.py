@@ -1,34 +1,33 @@
 #!/usr/bin/python3
 # test_base.py
-"""Defines unittest for base.py.
+"""Defines unittests for base.py.
 
 Unittest classes:
-    TestBase_instantiation - line 23
-    TestBase_to_json_string - line 110
-    TestBase_save_to_file - line 156
-    TestBase_from_json_string - line 234
-    TestBase_create - line 288
-    TestBase_load_from_file - line 340
-    TestBase_save_to_file_csv - line 406
-    TestBase_load_from_file_csv - line 484
+    TestBase_instantiation - line 22
+    TestBase_to_json_string - line 109
+    TestBase_save_to_file - line 155
+    TestBase_from_json_string - line 233
+    TestBase_create - line 287
+    TestBase_load_from_file - line 339
+    TestBase_save_to_file_csv - line 405
+    TestBase_load_from_file_csv - line 483
 """
-
 import os
 import unittest
-from models.base import Basee
-from model.rectangle import Rectangle
-from model.square import Square
+from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBase_instantiation(unittest.TestCase):
-    """Unitest for testing instantiantion of the base class."""
+    """Unittests for testing instantiation of the Base class."""
 
     def test_no_arg(self):
         b1 = Base()
         b2 = Base()
         self.assertEqual(b1.id, b2.id - 1)
 
-    def test_three_base(self):
+    def test_three_bases(self):
         b1 = Base()
         b2 = Base()
         b3 = Base()
@@ -37,7 +36,8 @@ class TestBase_instantiation(unittest.TestCase):
     def test_None_id(self):
         b1 = Base(None)
         b2 = Base(None)
-        self.assertEqual(b1.id, b2.id -1)
+        self.assertEqual(b1.id, b2.id - 1)
+
     def test_unique_id(self):
         self.assertEqual(12, Base(12).id)
 
@@ -548,4 +548,3 @@ class TestBase_load_from_file_csv(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
