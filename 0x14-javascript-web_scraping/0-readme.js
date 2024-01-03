@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 const fs = require('fs');
 
 // Extracting the file path and the string to write from the command line arguments
